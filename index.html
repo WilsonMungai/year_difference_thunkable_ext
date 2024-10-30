@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script 
+    src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js"
+    type="text/javascript"></script>
+</head>
+
+<script>
+  ThunkableWebviewerExtension.receiveMessage(function(message) {
+    const twoDates = JSON.parse(message);
+    const startYear = new Date(twoDates.startDate).getFullYear();
+    const endYear = new Date(twoDates.endDate).getFullYear();
+    
+    const yearDifference = endYear - startYear;
+    
+    ThunkableWebviewerExtension.postMessage(yearDifference);
+});
+</script>
+</html>
